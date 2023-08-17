@@ -7,6 +7,10 @@ function SignUp() {
   const auth = getAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const equalsPassword =
+    password === confirmPassword && password !== '' && confirmPassword !== ''
 
   const navigate = useNavigate()
 
@@ -21,15 +25,17 @@ function SignUp() {
         <form
           onSubmit={e => {
             e.preventDefault()
-            createUserWithEmailAndPassword(auth, email, password)
-              .then(() => {
-                alert('Cadastrado com sucesso!')
-                navigate('/login')
-              })
-              .catch(error => {
-                alert('Error')
-                console.log(error)
-              })
+            if (equalsPassword)
+              createUserWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                  alert('Cadastrado com sucesso!')
+                  navigate('/login')
+                })
+                .catch(error => {
+                  alert('Error')
+                  console.log(error)
+                })
+            else alert('As senhas não são iguais')
           }}
         >
           <label>Email:</label>
@@ -45,6 +51,13 @@ function SignUp() {
             required
             value={password}
             onChange={e => setPassword(e.target.value)}
+          />
+          <label>Confirmar Senha:</label>
+          <input
+            type="password"
+            required
+            value={confirmPassword}
+            onChange={e => setConfirmPassword(e.target.value)}
           />
           <div className="flex justify-between">
             <button onClick={() => navigate('/login')}>Voltar</button>
