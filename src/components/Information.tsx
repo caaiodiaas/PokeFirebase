@@ -32,7 +32,7 @@ function Information({ pokemon, detailsPage }: IProps) {
           <>
             <span className="feature">Tipo: {pokemon?.type}</span>
             <hr />
-            <span className="feature">Altura: {pokemon?.weight}</span>
+            <span className="feature">Altura: {pokemon?.height}</span>
             <hr />
             <span className="feature">Peso: {pokemon?.weight}</span>
             <hr />
