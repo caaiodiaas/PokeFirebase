@@ -1,10 +1,10 @@
-import React from "react";
-import Logo from "../assets/images/pokeball.png";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import Logo from '../assets/images/pokeball.png'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Navbar() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <nav className="navbar">
       <img src={Logo} alt="pokeball" width={50} />
@@ -13,33 +13,33 @@ function Navbar() {
         <Link
           to="/"
           style={{
-            color: "rgb(77, 77, 77)",
+            color: 'rgb(77, 77, 77)',
           }}
         >
-          All Pokemons
+          Todos Pokemons
         </Link>
         <Link
           to="/create"
           style={{
-            color: "white",
-            backgroundColor: "rgb(77, 77, 77)",
-            borderRadius: "8px",
+            color: 'white',
+            backgroundColor: 'rgb(77, 77, 77)',
+            borderRadius: '8px',
           }}
         >
-          New Pokemon
+          Novo Pokemon
         </Link>
         <button
           className="bg-red-400 p-[4px] px-3 text-white ml-3 rounded"
           onClick={() => {
-            localStorage.removeItem("user");
-            navigate("/login");
+            localStorage.removeItem('user')
+            navigate('/login')
           }}
         >
-          Logout
+          Sair
         </button>
       </div>
     </nav>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

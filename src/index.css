@@ -221,7 +221,7 @@ hr {
 }
 
 .update-button {
-  width: 130px;
+  width: fit-content;
   margin: 0;
 }
 
@@ -351,8 +351,10 @@ hr {
 
 .individual-card {
   gap: 20px;
+  max-height: 200px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .select {
