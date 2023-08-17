@@ -1,14 +1,14 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Logo from "../assets/images/pokeball.png";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Logo from '../assets/images/pokeball.png'
 
 function SignUp() {
-  const auth = getAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const auth = getAuth()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <div>
@@ -17,19 +17,19 @@ function SignUp() {
         <h1>PokeFirebase</h1>
       </nav>
       <div className="create">
-        <h2>Sign up</h2>
+        <h2>Cadastrar-se</h2>
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
+          onSubmit={e => {
+            e.preventDefault()
             createUserWithEmailAndPassword(auth, email, password)
               .then(() => {
-                alert("Signed up succesfully!");
-                navigate("/login");
+                alert('Cadastrado com sucesso!')
+                navigate('/login')
               })
-              .catch((error) => {
-                alert("Error");
-                console.log(error);
-              });
+              .catch(error => {
+                alert('Error')
+                console.log(error)
+              })
           }}
         >
           <label>Email:</label>
@@ -37,23 +37,23 @@ function SignUp() {
             type="text"
             required
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
           />
-          <label>Password:</label>
+          <label>Senha:</label>
           <input
             type="password"
             required
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
           />
           <div className="flex justify-between">
-            <button onClick={() => navigate("/login")}>Back</button>
-            <button type="submit">Sign up</button>
+            <button onClick={() => navigate('/login')}>Voltar</button>
+            <button type="submit">Cadastrar</button>
           </div>
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default SignUp;
+export default SignUp

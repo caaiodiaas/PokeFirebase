@@ -1,25 +1,25 @@
-import React, { Suspense } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import { Route, Routes } from "react-router-dom";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
+import React, { Suspense } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import { Route, Routes } from 'react-router-dom'
+import Login from './components/Login'
+import SignUp from './components/SignUp'
 
-const Card = React.lazy(() => import("./components/Card"));
-const Create = React.lazy(() => import("./components/Create"));
-const Destinations = React.lazy(() => import("./components/Destinations"));
-const Details = React.lazy(() => import("./components/Details"));
-const NotFound = React.lazy(() => import("./components/NotFound"));
+const Card = React.lazy(() => import('./components/Card'))
+const Create = React.lazy(() => import('./components/Create'))
+const Destinations = React.lazy(() => import('./components/Destinations'))
+const Details = React.lazy(() => import('./components/Details'))
+const NotFound = React.lazy(() => import('./components/NotFound'))
 const ReactQueryDestinations = React.lazy(
-  () => import("./components/ReactQueryDestinations")
-);
-const Search = React.lazy(() => import("./components/Search"));
+  () => import('./components/ReactQueryDestinations'),
+)
+const Search = React.lazy(() => import('./components/Search'))
 
 function App() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient()
 
   return (
-    <Suspense fallback={<p>Loading component...</p>}>
+    <Suspense fallback={<p>Carregando...</p>}>
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/create" element={<Create />} />
@@ -35,7 +35,7 @@ function App() {
         {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </QueryClientProvider>
     </Suspense>
-  );
+  )
 }
 
-export default App;
+export default App
